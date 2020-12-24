@@ -4,7 +4,7 @@ using Utilities;
 
 namespace Managers
 {
-    public class GameManager : SingletonMonoBehaviour<GameManager>
+    public class ApplicationManager : SingletonMonoBehaviour<ApplicationManager>
     {
         private static bool IsGamePaused
         {
@@ -16,6 +16,15 @@ namespace Managers
         {
             IsGamePaused = false;
             SceneManager.LoadScene(sceneName);
+        }
+
+        public static void ExitApplication()
+        {
+#if UNITY_EDITOR         
+            UnityEditor.EditorApplication.isPlaying = false;                
+#else 
+            Application.Quit();
+#endif
         }
     }
 }

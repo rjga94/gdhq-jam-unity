@@ -12,7 +12,7 @@ namespace Utilities
 #if !UNITY_EDITOR
         private void Awake()
         {
-            GameManager.LoadScene(startScene);
+            ApplicationManager.LoadScene(startScene);
         }      
 #endif
     }
