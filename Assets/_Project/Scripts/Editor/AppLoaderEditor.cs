@@ -16,11 +16,11 @@ namespace _Project.Scripts.Editor
             if (_afterLoadSceneName == null)
             {
                 _afterLoadSceneName = scene.name;
-                SceneManager.LoadScene(0);
+                if (SceneManager.GetActiveScene().buildIndex != 0) SceneManager.LoadScene(0);
                 return;
             }
-            
-            SceneManager.LoadScene(_afterLoadSceneName);
+
+            if (SceneManager.GetActiveScene().name != _afterLoadSceneName) SceneManager.LoadScene(_afterLoadSceneName);
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }
