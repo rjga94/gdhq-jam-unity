@@ -3,24 +3,24 @@ using UnityEngine;
 
 namespace StateMachines.Player
 {
-    public class JumpState : State
+    public class JumpState : State<PlayerController>
     {
         private Rigidbody2D _rb;
         
-        public JumpState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+        public JumpState(PlayerController controller) : base(controller)
         {
         }
 
         public override IEnumerator Start()
         {
-            _rb = PlayerStateMachine.Rigidbody2D;
+            _rb = Controller.Rigidbody2D;
             yield return null;
         }
 
         public override IEnumerator Update()
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, 5);
-            PlayerStateMachine.SetState(new MovementState(PlayerStateMachine));
+            _rb.velocity = new Vector2(_rb.velocity.x, Controller.jumpForce);
+            Controller.SetState(new MovementState(Controller));
             yield return null;
         }
     }

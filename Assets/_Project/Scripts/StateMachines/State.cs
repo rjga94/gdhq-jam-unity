@@ -1,17 +1,17 @@
 ﻿using System.Collections;
-using StateMachines.Player;
+using UnityEngine;
 
 namespace StateMachines
 {
-    public abstract class State
+    public abstract class State<T> where T : MonoBehaviour
     {
-        protected readonly PlayerStateMachine PlayerStateMachine;
+        protected readonly T Controller;
 
-        protected State(PlayerStateMachine playerStateMachine)
+        protected State(T controller)
         {
-            PlayerStateMachine = playerStateMachine;
+            Controller = controller;
         }
-
+        
         public virtual IEnumerator Start()
         {
             yield break;

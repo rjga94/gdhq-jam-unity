@@ -2,11 +2,11 @@
 
 namespace StateMachines
 {
-    public abstract class StateMachine : MonoBehaviour
+    public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     {
-        protected State State;
-
-        public void SetState(State state)
+        protected State<T> State;
+        
+        public void SetState(State<T> state)
         {
             State = state;
             StartCoroutine(State.Start());

@@ -38,9 +38,9 @@ namespace Input
                 },
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""50d12c54-f7cd-4270-a3c6-5a73daa2ba1f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -71,7 +71,7 @@ namespace Input
                 {
                     ""name"": ""WASD"",
                     ""id"": ""2a6e1804-4c71-43e6-b0b3-9a4e631ba428"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -1,31 +1,27 @@
 ﻿using System.Collections;
-using Managers;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace StateMachines.Player
 {
-    public class MovementState : State
+    public class MovementState : State<PlayerController>
     {
         private Rigidbody2D _rb;
         private float _movementSpeed;
-        private InputAction _movementAction;
 
-        public MovementState(PlayerStateMachine playerStateMachine) : base(playerStateMachine)
+        public MovementState(PlayerController controller) : base(controller)
         {
         }
 
         public override IEnumerator Start()
         {
-            _rb = PlayerStateMachine.Rigidbody2D;
-            _movementSpeed = PlayerStateMachine.movementSpeed;
-            _movementAction = InputManager.Instance.Gameplay.Movement;
+            _rb = Controller.Rigidbody2D;
+            _movementSpeed = Controller.movementSpeed;
             yield return null;
         }
 
         public override IEnumerator FixedUpdate()
         {
-            var movementAxis = _movementAction.ReadValue<Vector2>();
+            var movementAxis = Controller.MovementAxis;
             var velocityX = _movementSpeed * movementAxis.x;
             _rb.velocity = new Vector2(velocityX, _rb.velocity.y);
             yield return null;
