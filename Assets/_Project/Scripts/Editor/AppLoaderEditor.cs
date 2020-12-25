@@ -7,20 +7,26 @@ namespace _Project.Scripts.Editor
     [InitializeOnLoad]
     public static class AppLoaderEditor
     {
-        [CanBeNull] private static string _afterLoadSceneName;
+        [CanBeNull] private static int _startSceneBuildIndex;
 
-        static AppLoaderEditor() => SceneManager.sceneLoaded += OnSceneLoaded;
+        static AppLoaderEditor() => EditorApplication.playModeStateChanged += OnPlayerModeStateChanged;
+
+        private static void OnPlayerModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredPlayMode)
+            {
+                _startSceneBuildIndex = SceneManager.GetActiveScene().buildIndex;
+                if (_startSceneBuildIndex != 0)
+                {
+                    SceneManager.sceneLoaded += OnSceneLoaded;
+                    SceneManager.LoadScene(0);
+                }
+            }
+        }
 
         private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (_afterLoadSceneName == null)
-            {
-                _afterLoadSceneName = scene.name;
-                if (SceneManager.GetActiveScene().buildIndex != 0) SceneManager.LoadScene(0);
-                return;
-            }
-
-            if (SceneManager.GetActiveScene().name != _afterLoadSceneName) SceneManager.LoadScene(_afterLoadSceneName);
+            SceneManager.LoadScene(_startSceneBuildIndex);
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
     }

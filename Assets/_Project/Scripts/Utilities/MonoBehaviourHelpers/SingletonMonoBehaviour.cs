@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Utilities
 {
-    public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static readonly Lazy<T> LazyInstance = new Lazy<T>(CreateSingleton);
         
@@ -12,7 +12,9 @@ namespace Utilities
         private static T CreateSingleton()
         {
             var gameObject = new GameObject($"{typeof(T).Name} (singleton)");
-            return gameObject.AddComponent<T>();
+            var instance = gameObject.AddComponent<T>();
+            DontDestroyOnLoad(gameObject);
+            return instance;
         }
     }
 }

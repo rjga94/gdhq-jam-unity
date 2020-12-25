@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +9,11 @@ namespace Managers
     {
         [SerializeField] private GameObject canvasGO;
         [SerializeField] private GameScene[] ignoreScenes;
-        
+
+        private void Start() => InputManager.Instance.Gameplay.PauseGame.performed += OnPauseGameInput;
+
+        private void OnDestroy() => InputManager.Instance.Gameplay.PauseGame.performed -= OnPauseGameInput;
+
         private void PauseGame()
         {
             canvasGO.SetActive(true);
@@ -21,9 +26,8 @@ namespace Managers
             ApplicationManager.Instance.ResumeGame();   
         }
 
-        public void OnPauseGameInput(InputAction.CallbackContext context)
+        private void OnPauseGameInput(InputAction.CallbackContext context)
         {
-            if (!context.performed) return;
             if (ignoreScenes.Any(scene => scene.ToString() == ApplicationManager.Instance.ActiveScene.name)) return;
             if (ApplicationManager.Instance.IsGamePaused) ResumeGame();
             else PauseGame();

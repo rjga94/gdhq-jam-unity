@@ -22,6 +22,8 @@ namespace Managers
 
         public Scene ActiveScene => SceneManager.GetActiveScene();
 
+        public void LoadStartScene() => LoadScene(GameScene.MainMenu);
+
         public void LoadScene(GameScene scene)
         {
             if (SceneManager.GetActiveScene().name != scene.ToString()) SceneManager.LoadScene(scene.ToString());
