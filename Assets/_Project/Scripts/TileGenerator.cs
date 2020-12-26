@@ -13,30 +13,15 @@ public class TileGenerator : MonoBehaviour
 
     private void Start()
     {
-        RenderMap(RandomWalkTopSmoothed(GenerateArray(width, height, true), seed, minSectionWidth), tilemap, groundTile);
+        // RenderMap(RandomWalkTopSmoothed(GenerateArray(width, height, true), seed, minSectionWidth), tilemap, groundTile, groundTopTile);
     }
 
-    public static int[,] GenerateArray(int width, int height, bool empty)
+    private void OnValidate()
     {
-        int[,] map = new int[width, height];
-        for (int x = 0; x < map.GetUpperBound(0); x++)
-        {
-            for (int y = 0; y < map.GetUpperBound(1); y++)
-            {
-                if (empty)
-                {
-                    map[x, y] = 0;
-                }
-                else
-                {
-                    map[x, y] = 1;
-                }
-            }
-        }
-        return map;
+        RenderMap(RandomWalkTopSmoothed(GenerateArray(width, height, true), seed, minSectionWidth), tilemap, groundTile, groundTopTile);
     }
-    
-    public static void RenderMap(int[,] map, Tilemap tilemap, TileBase tile)
+
+    private static void RenderMap(int[,] map, Tilemap tilemap, TileBase tile, TileBase topTile)
     {
         //Clear the map (ensures we dont overlap)
         tilemap.ClearAllTiles(); 
@@ -49,13 +34,18 @@ public class TileGenerator : MonoBehaviour
                 // 1 = tile, 0 = no tile
                 if (map[x, y] == 1) 
                 {
-                    tilemap.SetTile(new Vector3Int(x, y, 0), tile); 
+                    tilemap.SetTile(new Vector3Int(x, y, 0), tile);
+                    var abovePos = new Vector3Int(x, y + 1, 0);
+                    if (!tilemap.HasTile(abovePos))
+                    {
+                        tilemap.SetTile(abovePos, topTile);
+                    }
                 }
             }
         }
     }
-    
-    public static int[,] RandomWalkTopSmoothed(int[,] map, float seed, int minSectionWidth)
+
+    private static int[,] RandomWalkTopSmoothed(int[,] map, float seed, int minSectionWidth)
     {
         //Seed our random
         System.Random rand = new System.Random(seed.GetHashCode());
@@ -96,6 +86,26 @@ public class TileGenerator : MonoBehaviour
         }
 
         //Return the modified map
+        return map;
+    }
+
+    private static int[,] GenerateArray(int width, int height, bool empty)
+    {
+        int[,] map = new int[width, height];
+        for (int x = 0; x < map.GetUpperBound(0); x++)
+        {
+            for (int y = 0; y < map.GetUpperBound(1); y++)
+            {
+                if (empty)
+                {
+                    map[x, y] = 0;
+                }
+                else
+                {
+                    map[x, y] = 1;
+                }
+            }
+        }
         return map;
     }
 }
