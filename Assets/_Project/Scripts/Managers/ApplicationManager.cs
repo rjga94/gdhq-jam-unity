@@ -8,7 +8,7 @@ namespace Managers
     public enum GameScene
     {
         MainMenu,
-        FallLevel
+        ProceduralLevel
     }
     
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Global")]
@@ -27,6 +27,12 @@ namespace Managers
         public void LoadScene(GameScene scene)
         {
             if (SceneManager.GetActiveScene().name != scene.ToString()) SceneManager.LoadScene(scene.ToString());
+            IsGamePaused = false;
+        }
+
+        public void ReloadActiveScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             IsGamePaused = false;
         }
 
