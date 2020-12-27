@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Utilities
 {
-    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
+    public class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
     {
         private static readonly Lazy<T> LazyInstance = new Lazy<T>(CreateSingleton);
         
