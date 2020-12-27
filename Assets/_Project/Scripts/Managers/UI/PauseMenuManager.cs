@@ -41,5 +41,10 @@ namespace Managers
         }
 
         public void OnQuitGameButtonClick() => ApplicationManager.Instance.ExitApplication();
+
+        public void onSettingsButtonClick()
+        {
+
+        }
     }
 }
