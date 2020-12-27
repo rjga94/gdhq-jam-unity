@@ -8,7 +8,7 @@ namespace Managers
     public enum GameScene
     {
         MainMenu,
-        Level_1
+        FallLevel
     }
     
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Global")]
