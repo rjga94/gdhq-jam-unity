@@ -3,7 +3,7 @@ using Utilities;
 
 namespace Managers
 {
-    public class GameOverMenuManager : SingletonMonoBehaviour<GameOverMenuManager>
+    public class GameOverMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject canvasGO;
 

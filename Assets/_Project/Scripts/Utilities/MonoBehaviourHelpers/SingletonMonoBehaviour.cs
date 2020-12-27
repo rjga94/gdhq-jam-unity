@@ -13,11 +13,8 @@ namespace Utilities
         {
             var gameObject = new GameObject($"{typeof(T).Name} (singleton)");
             var instance = gameObject.AddComponent<T>();
-            instance.OnCreateInstance();
             DontDestroyOnLoad(gameObject);
             return instance;
         }
-
-        protected virtual void OnCreateInstance() {}
     }
 }

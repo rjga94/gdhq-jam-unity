@@ -9,11 +9,6 @@ namespace Managers
 
         public InputMaster.GameplayActions Gameplay;
 
-        protected override void OnCreateInstance()
-        {
-            base.OnCreateInstance();
-        }
-
         private void Awake()
         {
             _input = new InputMaster();
