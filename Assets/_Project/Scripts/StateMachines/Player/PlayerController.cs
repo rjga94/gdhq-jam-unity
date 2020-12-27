@@ -12,6 +12,7 @@ namespace StateMachines.Player
         
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;
+        public LayerMask groundLayer;
 
         private void Awake() => Rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -34,9 +35,31 @@ namespace StateMachines.Player
 
         private void FixedUpdate() => StartCoroutine(State.FixedUpdate());
 
-        private void OnJumpInput(InputAction.CallbackContext context) => SetState(new JumpState(this));
+        private void OnJumpInput(InputAction.CallbackContext context) {
+            if (IsGrounded() == true)
+            {
+                SetState(new JumpState(this));
+            }
+        }
 
         private void OnMovementInput(InputAction.CallbackContext context) =>
             MovementAxis = context.ReadValue<Vector2>();
+
+        private bool IsGrounded()
+        {
+            Vector2 position = transform.position;
+            Vector2 direction = Vector2.down;
+            float distance = 2.0f;
+
+            RaycastHit2D hit = Physics2D.Raycast(position, direction, distance, groundLayer);
+            if (hit.collider != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
