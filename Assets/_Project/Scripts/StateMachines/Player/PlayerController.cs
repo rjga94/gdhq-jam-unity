@@ -13,6 +13,8 @@ namespace StateMachines.Player
         [SerializeField] public float movementSpeed;
         [SerializeField] public float jumpForce;
         [SerializeField] public GameObject attackColliderGO;
+        [SerializeField] public GameObject projectilePrefab;
+        [SerializeField] public GameObject projectileSpawnPosition;
         
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;
@@ -53,8 +55,11 @@ namespace StateMachines.Player
         private void OnMovementInput(InputAction.CallbackContext context) =>
             MovementAxis = context.ReadValue<Vector2>();
 
-        private void OnAttackInput(InputAction.CallbackContext context) => SetState(new AttackState(this));
-        
+        private void OnAttackInput(InputAction.CallbackContext context)
+        {
+            SetState(new RangedAttackState(this));
+        }
+
         private bool IsGrounded()
         {
             var bounds = _collider2D.bounds;
