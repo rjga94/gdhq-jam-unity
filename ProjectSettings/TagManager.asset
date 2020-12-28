@@ -18,6 +18,9 @@ TagManager:
   - Player
   - Core
   - Ground
+  - EnemyRange
+  - Enemy
+  - EnemyAttack
   - 
   - 
   - 
