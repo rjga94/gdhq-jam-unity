@@ -7,6 +7,7 @@ namespace Managers
     public class PauseMenuManager : MonoBehaviour
     {
         [SerializeField] private GameObject canvasGO;
+        [SerializeField] private GameObject settingsCanvasGO;
         [SerializeField] private GameScene[] ignoreScenes;
 
         private void Start() => InputManager.Instance.Gameplay.PauseGame.performed += OnPauseGameInput;
@@ -44,7 +45,8 @@ namespace Managers
 
         public void onSettingsButtonClick()
         {
-
+            settingsCanvasGO.SetActive(true);
+            canvasGO.SetActive(false);
         }
     }
 }

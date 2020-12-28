@@ -12,6 +12,7 @@ namespace StateMachines.Player
         
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;
+
         public LayerMask groundLayer;
 
         private void Awake() => Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,7 +40,7 @@ namespace StateMachines.Player
             if (IsGrounded() == true)
             {
                 SetState(new JumpState(this));
-            }
+            } 
         }
 
         private void OnMovementInput(InputAction.CallbackContext context) =>
