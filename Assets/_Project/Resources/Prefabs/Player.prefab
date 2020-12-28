@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 10
-  jumpForce: 10
+  jumpForce: 17
   attackColliderGO: {fileID: 1419798618}
   Rigidbody2D: {fileID: 0}
   MovementAxis: {x: 0, y: 0}
