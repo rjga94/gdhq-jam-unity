@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 8903362691130995031}
   - component: {fileID: 7855528399339318945}
   - component: {fileID: -5467826589774348084}
+  - component: {fileID: 4992840940073043280}
   m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
@@ -220,7 +221,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 607412717719830977, guid: 6bacd236888792f4281e7d843cc32711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -313,3 +314,15 @@ MonoBehaviour:
   attackColliderGO: {fileID: 1670001587}
   Rigidbody2D: {fileID: 0}
   target: {fileID: 0}
+--- !u!114 &4992840940073043280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238912858792580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ff40ddeefd431fa5c3963140e552cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

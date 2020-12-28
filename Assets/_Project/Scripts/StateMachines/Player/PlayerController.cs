@@ -33,6 +33,7 @@ namespace StateMachines.Player
 
         private void OnDestroy()
         {
+            FindObjectOfType<GameOverMenuManager>().Show();
             var gameplayActions = InputManager.Instance.Gameplay;
             gameplayActions.Jump.performed -= OnJumpInput;
             gameplayActions.Movement.performed -= OnMovementInput;
