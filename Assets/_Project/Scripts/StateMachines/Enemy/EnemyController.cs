@@ -6,7 +6,6 @@ namespace StateMachines.Enemy
     public class EnemyController : StateMachine<EnemyController>
     {
         [SerializeField] public float movementSpeed;
-        [SerializeField] public float attackPower;
         [SerializeField] public float attackRange;
         [SerializeField] public GameObject attackColliderGO;
 

@@ -43,6 +43,14 @@ namespace Input
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""4770ed55-975a-4ffc-9d01-572e9d0c428a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -122,6 +130,17 @@ namespace Input
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b358d468-0335-44c8-aabe-43472a39cf0f"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -161,6 +180,7 @@ namespace Input
             m_Gameplay_PauseGame = m_Gameplay.FindAction("PauseGame", throwIfNotFound: true);
             m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
             m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+            m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -213,6 +233,7 @@ namespace Input
         private readonly InputAction m_Gameplay_PauseGame;
         private readonly InputAction m_Gameplay_Jump;
         private readonly InputAction m_Gameplay_Movement;
+        private readonly InputAction m_Gameplay_Attack;
         public struct GameplayActions
         {
             private @InputMaster m_Wrapper;
@@ -220,6 +241,7 @@ namespace Input
             public InputAction @PauseGame => m_Wrapper.m_Gameplay_PauseGame;
             public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
             public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+            public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -238,6 +260,9 @@ namespace Input
                     @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                     @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
                     @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                    @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                    @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                    @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
                 }
                 m_Wrapper.m_GameplayActionsCallbackInterface = instance;
                 if (instance != null)
@@ -251,6 +276,9 @@ namespace Input
                     @Movement.started += instance.OnMovement;
                     @Movement.performed += instance.OnMovement;
                     @Movement.canceled += instance.OnMovement;
+                    @Attack.started += instance.OnAttack;
+                    @Attack.performed += instance.OnAttack;
+                    @Attack.canceled += instance.OnAttack;
                 }
             }
         }
@@ -278,6 +306,7 @@ namespace Input
             void OnPauseGame(InputAction.CallbackContext context);
             void OnJump(InputAction.CallbackContext context);
             void OnMovement(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
         }
     }
 }

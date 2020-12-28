@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1670001588}
   - component: {fileID: 1670001589}
   - component: {fileID: 1670001590}
-  m_Layer: 12
+  m_Layer: 13
   m_Name: AttackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b83b1434b04edf8f93ba06e589d709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: -5467826589774348084}
+  attackPower: 1
 --- !u!1 &5181214178323290627
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,8 +82,8 @@ GameObject:
   - component: {fileID: 6921344867299868756}
   - component: {fileID: 6849543551312400105}
   - component: {fileID: 912411979}
-  m_Layer: 10
-  m_Name: PlayerCollider
+  m_Layer: 0
+  m_Name: PlayerFinderCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,8 +156,9 @@ GameObject:
   - component: {fileID: 8903362691130995031}
   - component: {fileID: 7855528399339318945}
   - component: {fileID: -5467826589774348084}
+  - component: {fileID: 707074429}
   - component: {fileID: 4992840940073043280}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -309,11 +310,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  attackPower: 1
   attackRange: 1
   attackColliderGO: {fileID: 1670001587}
   Rigidbody2D: {fileID: 0}
   target: {fileID: 0}
+--- !u!114 &707074429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238912858792580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c8b26f39694d63aefa3e9341250c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
 --- !u!114 &4992840940073043280
 MonoBehaviour:
   m_ObjectHideFlags: 0

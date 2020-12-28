@@ -1,18 +1,18 @@
-﻿using StateMachines.Enemy;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Handlers
 {
-    public class AttackColliderHandler : MonoBehaviour
+    public class AttackHandler : MonoBehaviour
     {
-        [SerializeField] private EnemyController enemyController;
+        [SerializeField] private float attackPower;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             var healthHandler = other.GetComponent<HealthHandler>();
             if (!healthHandler) return;
             
-            healthHandler.OnDamage(enemyController.attackPower);
+            healthHandler.OnDamage(attackPower);
+            gameObject.SetActive(false);
         }
     }
 }
