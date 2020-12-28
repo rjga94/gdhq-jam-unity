@@ -994,7 +994,7 @@ MonoBehaviour:
   platformMaxWidth: 8
   enemyPrefab: {fileID: 5238912858792580004, guid: af57ded0827718748b699610af3eabaf,
     type: 3}
-  enemyFrequency: 0.5
+  enemyFrequency: 0.2
   corePrefab: {fileID: 7953460937256299167, guid: 711b23a9fc8b5d34b81f5aef0f6238bf,
     type: 3}
 --- !u!4 &1698207583
