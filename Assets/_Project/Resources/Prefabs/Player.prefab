@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8496551751913662222}
   - component: {fileID: 8496551751913662223}
   - component: {fileID: 8496551751913662220}
+  - component: {fileID: 1072558391}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -168,3 +169,16 @@ MonoBehaviour:
   jumpForce: 10
   Rigidbody2D: {fileID: 0}
   MovementAxis: {x: 0, y: 0}
+--- !u!114 &1072558391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496551751913662211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c8b26f39694d63aefa3e9341250c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
