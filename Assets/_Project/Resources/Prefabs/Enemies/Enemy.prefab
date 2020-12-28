@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 5
   attackPower: 1
+  attackRange: 1
   attackColliderGO: {fileID: 1670001587}
   Rigidbody2D: {fileID: 0}
   target: {fileID: 0}

@@ -22,8 +22,8 @@ namespace StateMachines.Enemy
             var posX = _rb.position.x;
             var targetX = Controller.target.gameObject.transform.position.x;
 
-            if (targetX - posX >= 1f) _rb.velocity = new Vector2(Controller.movementSpeed, _rb.velocity.y);
-            else if (targetX - posX <= -1f) _rb.velocity = new Vector2(-Controller.movementSpeed, _rb.velocity.y);
+            if (targetX - posX >= Controller.attackRange) _rb.velocity = new Vector2(Controller.movementSpeed, _rb.velocity.y);
+            else if (targetX - posX <= -Controller.attackRange) _rb.velocity = new Vector2(-Controller.movementSpeed, _rb.velocity.y);
             else
             {
                 _rb.velocity = new Vector2(0, _rb.velocity.y);
