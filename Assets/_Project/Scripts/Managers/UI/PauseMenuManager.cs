@@ -23,6 +23,7 @@ namespace Managers
         private void ResumeGame()
         {
             canvasGO.SetActive(false);
+            settingsCanvasGO.SetActive(false);
             ApplicationManager.Instance.ResumeGame();   
         }
 
