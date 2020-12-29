@@ -40,9 +40,6 @@ namespace ProceduralGeneration
         private void UpdateTileSprites()
         {
             var bounds = _tilemap.cellBounds;
-            Debug.Log("bounds = " + bounds);
-            Debug.Log($"boundsMin = {bounds.min}");
-            Debug.Log($"boundsMax = {bounds.max}");
             for (var x = bounds.min.x; x < bounds.max.x; x++)
             {
                 for (var y = bounds.min.y; y < bounds.max.y; y++)

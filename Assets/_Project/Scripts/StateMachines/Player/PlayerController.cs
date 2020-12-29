@@ -4,24 +4,28 @@ using UnityEngine.InputSystem;
 
 namespace StateMachines.Player
 {
-    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(Collider2D)), RequireComponent(typeof(Animator))]
     public class PlayerController : StateMachine<PlayerController>
     {
+        private static readonly int IsMovingAnimHash = Animator.StringToHash("IsMoving");
+        
         private Collider2D _collider2D;
         private LayerMask _groundLayer;
-        
+
         [SerializeField] public float movementSpeed;
         [SerializeField] public float jumpForce;
         [SerializeField] public GameObject attackColliderGO;
         [SerializeField] public GameObject projectilePrefab;
         [SerializeField] public GameObject projectileSpawnPosition;
-        
+
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;
+        [HideInInspector] public Animator Animator;
 
         private void Awake()
         {
             Rigidbody2D = GetComponent<Rigidbody2D>();
+            Animator = GetComponent<Animator>();
             _collider2D = GetComponent<Collider2D>();
             _groundLayer = LayerMask.GetMask("Ground");
         }
@@ -44,7 +48,11 @@ namespace StateMachines.Player
             gameplayActions.Attack.performed -= OnAttackInput;
         }
 
-        private void Update() => StartCoroutine(State.Update());
+        private void Update()
+        {
+            StartCoroutine(State.Update());
+            Animator.SetBool(IsMovingAnimHash, MovementAxis.x < -0.05f || MovementAxis.x > 0.05f);
+        }
 
         private void FixedUpdate() => StartCoroutine(State.FixedUpdate());
 
