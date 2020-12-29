@@ -13,7 +13,7 @@ namespace StateMachines.Player
 
         public override IEnumerator Start()
         {
-            Object.Instantiate(Controller.projectilePrefab, Controller.projectileSpawnPosition.transform.position, new Quaternion(0,0,0,0));
+            Object.Instantiate(Controller.projectilePrefab, Controller.projectileSpawnPosition.transform.position, Quaternion.identity);
             Controller.SetState(new MovementState(Controller));
             yield return null;
         }

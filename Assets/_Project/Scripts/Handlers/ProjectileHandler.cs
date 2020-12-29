@@ -11,18 +11,32 @@ namespace Handlers
         [SerializeField] private float timeAlive;
         
         private Vector3 _target;
-        private Vector3 movementVector;
+
+        private Vector3 _dir;
         
         private void Awake()
         {
-            _target = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            movementVector = (_target - transform.position).normalized * projectileSpeed;
-            transform.right = _target - transform.position;
+            var point = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            _target = new Vector3(point.x, point.y, 0);
 
+            _dir = (_target - transform.position).normalized;
+            transform.eulerAngles = new Vector3(0, 0, GetAngleFromVectorFloat(_dir));
+            
             StartCoroutine(DestroySelfAfterTime());
         }
 
-        private void Update() => transform.position += new Vector3(movementVector.x * Time.deltaTime, movementVector.y * Time.deltaTime);
+        private float GetAngleFromVectorFloat(Vector3 dir)
+        {
+            dir = dir.normalized;
+            float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            if (n < 0) n += 360;
+            return n;
+        }
+
+        private void Update()
+        {
+            transform.position += new Vector3(_dir.x, _dir.y, 0) * (projectileSpeed * Time.deltaTime);
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
