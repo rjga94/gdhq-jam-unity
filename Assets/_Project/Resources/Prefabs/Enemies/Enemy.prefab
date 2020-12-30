@@ -80,12 +80,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2092097125850199599}
+  - component: {fileID: 1650364663086718286}
   - component: {fileID: 1112228944553156591}
   - component: {fileID: 7259511247996869660}
   - component: {fileID: 8903362691130995031}
   - component: {fileID: 7855528399339318945}
   - component: {fileID: -5467826589774348084}
-  - component: {fileID: 707074429}
   - component: {fileID: 4992840940073043280}
   m_Layer: 12
   m_Name: Enemy
@@ -110,6 +110,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650364663086718286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238912858792580004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c8b26f39694d63aefa3e9341250c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  lootGO: {fileID: 8489787855909193805, guid: 3ab646edb9b5a2742932296d57485fce, type: 3}
 --- !u!212 &1112228944553156591
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -244,19 +258,6 @@ MonoBehaviour:
   attackColliderGO: {fileID: 7742833327716468402}
   Rigidbody2D: {fileID: 0}
   target: {fileID: 0}
---- !u!114 &707074429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5238912858792580004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c8b26f39694d63aefa3e9341250c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 5
 --- !u!114 &4992840940073043280
 MonoBehaviour:
   m_ObjectHideFlags: 0

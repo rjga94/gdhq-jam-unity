@@ -10,14 +10,22 @@ namespace Handlers
         public float Health => health;
 
         public event Action OnHealthChanged;
-        
+
+        public GameObject lootGO;
+
         public void OnDamage(float amount)
         {
             health -= amount;
             OnHealthChanged?.Invoke();
             if (health <= 0)
             {
-                Destroy(gameObject);
+                Destroy(gameObject); 
+                if (this.gameObject.tag == "Enemy")
+                {
+
+                    Instantiate(lootGO, transform.position, Quaternion.identity);
+                }
+                     
             }
         }
     }
