@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62e4e0210e0146d5a9ef453489f80832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 7
   jumpForce: 17
   attackColliderGO: {fileID: 1419798618}
   projectilePrefab: {fileID: 3314077287919064909, guid: 7321bd7fa0d43fe42bd5f8b635a014a1,
@@ -206,6 +206,8 @@ MonoBehaviour:
   projectileSpawnPosition: {fileID: 8205411364171841171}
   Rigidbody2D: {fileID: 0}
   MovementAxis: {x: 0, y: 0}
+  Animator: {fileID: 0}
+  collectedShards: 0
 --- !u!114 &1072558391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  lootGO: {fileID: 0}
 --- !u!114 &5225238815162841703
 MonoBehaviour:
   m_ObjectHideFlags: 0
