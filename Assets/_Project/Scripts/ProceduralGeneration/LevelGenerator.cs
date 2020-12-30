@@ -8,7 +8,7 @@ namespace ProceduralGeneration
     public class LevelGenerator
     {
         private readonly Tilemap _tilemap;
-        private readonly TileBase[] _groundTiles;
+        private readonly TileSetSO _tileSet;
         private readonly int _holeWidth;
         private readonly int _holeSize;
         private readonly int _platformFrequency;
@@ -18,13 +18,15 @@ namespace ProceduralGeneration
     
         private readonly Random _random;
         private int _lastPlacedPlatformIndex;
-    
+
         public readonly List<List<Vector2Int>> PlatformPositions;
 
-        public LevelGenerator(Tilemap tilemap, TileBase[] groundTiles, int holeWidth, int holeSize, float platformFrequency, int platformMinWidth, int platformMaxWidth, GameObject corePrefab)
+        public LevelGenerator(Tilemap tilemap, TileSetSO[] tileSets, int holeWidth, int holeSize, float platformFrequency, int platformMinWidth, int platformMaxWidth, GameObject corePrefab)
         {
+            var random = new Random();
+            
             _tilemap = tilemap;
-            _groundTiles = groundTiles;
+            _tileSet = tileSets[random.Next(0, tileSets.Length)];
             _holeWidth = holeWidth;
             _holeSize = holeSize;
             _platformFrequency = (int) (platformFrequency * 100f);
@@ -47,62 +49,62 @@ namespace ProceduralGeneration
                     var tilePos = new Vector3Int(x, y, 0);
                     if (!_tilemap.HasTile(tilePos)) continue;
 
-                    var newTile = _groundTiles[4];
+                    var newTile = _tileSet.centerTile;
                     if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y + 1, 0))) // top
                     {
                         if (!_tilemap.HasTile(new Vector3Int(tilePos.x - 1, tilePos.y, 0))) // left
                         {
-                            newTile = _groundTiles[0];
+                            newTile = _tileSet.topLeftTile;
                         }
                         else if (!_tilemap.HasTile(new Vector3Int(tilePos.x + 1, tilePos.y, 0))) // right
                         {
-                            newTile = _groundTiles[2];
+                            newTile = _tileSet.topRightTile;
                         }
                         else
                         {
-                            newTile = _groundTiles[1];   
+                            newTile = _tileSet.topTile;   
                         }
                     } else if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y - 1, 0))) // bottom
                     {
                         if (!_tilemap.HasTile(new Vector3Int(tilePos.x - 1, tilePos.y, 0))) // left
                         {
-                            newTile = _groundTiles[6];
+                            newTile = _tileSet.bottomLeftTile;
                         }
                         else if (!_tilemap.HasTile(new Vector3Int(tilePos.x + 1, tilePos.y, 0))) // right
                         {
-                            newTile = _groundTiles[8];
+                            newTile = _tileSet.bottomRightTile;
                         }
                         else
                         {
-                            newTile = _groundTiles[7];   
+                            newTile = _tileSet.bottomTile;
                         }
                     } else if (!_tilemap.HasTile(new Vector3Int(tilePos.x - 1, tilePos.y, 0))) // left
                     {
                         if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y + 1, 0))) // top
                         {
-                            newTile = _groundTiles[0];
+                            newTile = _tileSet.topLeftTile;
                         }
                         else if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y - 1, 0))) // bottom
                         {
-                            newTile = _groundTiles[6];
+                            newTile = _tileSet.bottomLeftTile;
                         }
                         else
                         {
-                            newTile = _groundTiles[3];   
+                            newTile = _tileSet.leftTile;
                         }
                     } else if (!_tilemap.HasTile(new Vector3Int(tilePos.x + 1, tilePos.y, 0))) // right
                     {
                         if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y + 1, 0))) // top
                         {
-                            newTile = _groundTiles[2];
+                            newTile = _tileSet.topRightTile;
                         }
                         else if (!_tilemap.HasTile(new Vector3Int(tilePos.x, tilePos.y - 1, 0))) // bottom
                         {
-                            newTile = _groundTiles[8];
+                            newTile = _tileSet.bottomRightTile;
                         }
                         else
                         {
-                            newTile = _groundTiles[5];   
+                            newTile = _tileSet.rightTile;
                         }
                     }
                     
@@ -121,13 +123,13 @@ namespace ProceduralGeneration
             var key = 0;
             for (var i = 0; i < _holeSize; i++)
             {
-                _tilemap.SetTile(new Vector3Int(-halfWidth - 1, -i , 0), _groundTiles[4]);
-                _tilemap.SetTile(new Vector3Int(halfWidth, -i , 0), _groundTiles[4]);
+                _tilemap.SetTile(new Vector3Int(-halfWidth - 1, -i , 0), _tileSet.centerTile);
+                _tilemap.SetTile(new Vector3Int(halfWidth, -i , 0), _tileSet.centerTile);
 
                 for (var j = 0; j < 18; j++)
                 {
-                    _tilemap.SetTile(new Vector3Int((-halfWidth - 1) - j, -i , 0), _groundTiles[4]);
-                    _tilemap.SetTile(new Vector3Int(halfWidth + j, -i, 0), _groundTiles[4]);
+                    _tilemap.SetTile(new Vector3Int((-halfWidth - 1) - j, -i , 0), _tileSet.centerTile);
+                    _tilemap.SetTile(new Vector3Int(halfWidth + j, -i, 0), _tileSet.centerTile);
                 }
 
                 if (_lastPlacedPlatformIndex + 3 < i && _random.Next(0, 100) <= _platformFrequency)
@@ -143,7 +145,7 @@ namespace ProceduralGeneration
                             _tilemap.SetTile(new Vector3Int(x, -i +j, 0), null);
                         }
                     
-                        _tilemap.SetTile(new Vector3Int(x, -i, 0), _groundTiles[4]);
+                        _tilemap.SetTile(new Vector3Int(x, -i, 0), _tileSet.centerTile);
                         if (key > PlatformPositions.Count - 1) PlatformPositions.Add(new List<Vector2Int>());
                         PlatformPositions[key].Add(new Vector2Int(x, -i));
                     }
@@ -153,21 +155,21 @@ namespace ProceduralGeneration
         
             for (var j = _holeSize; j < _holeSize + 10; j++)
             {
-                _tilemap.SetTile(new Vector3Int(-halfWidth - 1, -j , 0), _groundTiles[4]);
-                _tilemap.SetTile(new Vector3Int(halfWidth, -j , 0), _groundTiles[4]);
+                _tilemap.SetTile(new Vector3Int(-halfWidth - 1, -j , 0), _tileSet.centerTile);
+                _tilemap.SetTile(new Vector3Int(halfWidth, -j , 0), _tileSet.centerTile);
 
                 for (var k = 0; k < 18; k++)
                 {
-                    _tilemap.SetTile(new Vector3Int((-halfWidth - 1) - k, -j , 0), _groundTiles[4]);
-                    _tilemap.SetTile(new Vector3Int(halfWidth + k, -j, 0), _groundTiles[4]);
+                    _tilemap.SetTile(new Vector3Int((-halfWidth - 1) - k, -j , 0), _tileSet.centerTile);
+                    _tilemap.SetTile(new Vector3Int(halfWidth + k, -j, 0), _tileSet.centerTile);
                 }
 
                 for (var o = _holeSize + 10; o < _holeSize + 10 + 18; o++)
                 {
                     for (var k = 0; k < 13 + _holeWidth; k++)
                     {
-                        _tilemap.SetTile(new Vector3Int(-k - 1, -o , 0), _groundTiles[4]);
-                        _tilemap.SetTile(new Vector3Int(k, -o, 0), _groundTiles[4]);
+                        _tilemap.SetTile(new Vector3Int(-k - 1, -o , 0), _tileSet.centerTile);
+                        _tilemap.SetTile(new Vector3Int(k, -o, 0), _tileSet.centerTile);
                     }
                 }
             }

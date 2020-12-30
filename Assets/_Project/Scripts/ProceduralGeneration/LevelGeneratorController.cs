@@ -6,7 +6,7 @@ namespace ProceduralGeneration
     public class LevelGeneratorController : MonoBehaviour
     {
         [SerializeField] private Tilemap tilemap;
-        [SerializeField] private TileBase[] groundTiles;
+        [SerializeField] private TileSetSO[] tileSets;
         [SerializeField] private int holeWidth;
         [SerializeField] private int holeSize;
     
@@ -21,7 +21,7 @@ namespace ProceduralGeneration
     
         private void Awake()
         {
-            var levelGenerator = new LevelGenerator(tilemap, groundTiles, holeWidth, holeSize, platformFrequency, platformMinWidth, platformMaxWidth, corePrefab);
+            var levelGenerator = new LevelGenerator(tilemap, tileSets, holeWidth, holeSize, platformFrequency, platformMinWidth, platformMaxWidth, corePrefab);
             levelGenerator.GenerateTiles();
         
             var enemyGenerator = new EnemyGenerator(levelGenerator, enemyPrefab, enemyFrequency);

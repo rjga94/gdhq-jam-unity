@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33a2e3057d24b71a052543350e25652, type: 3}
+  m_Name: Ice_TileSet
+  m_EditorClassIdentifier: 
+  topLeftTile: {fileID: 11400000, guid: 61a7659db165a324ab4f68afe4af7f91, type: 2}
+  topTile: {fileID: 11400000, guid: eca46b7864126354590e5cb2fc505c34, type: 2}
+  topRightTile: {fileID: 11400000, guid: e63b5b5114670fb48891e1eae19bc2a5, type: 2}
+  leftTile: {fileID: 11400000, guid: d1aabf4d72a1d1d409760ef23e872a09, type: 2}
+  centerTile: {fileID: 11400000, guid: 45d93cbc745392948abcf79c1cbdfe84, type: 2}
+  rightTile: {fileID: 11400000, guid: adb20b0e9c37f3d41bbc3e96ec004ec4, type: 2}
+  bottomLeftTile: {fileID: 11400000, guid: b99223b24b1af5b4b91a8a08079eee68, type: 2}
+  bottomTile: {fileID: 11400000, guid: 798824ec57bca08458198351aab9d6a4, type: 2}
+  bottomRightTile: {fileID: 11400000, guid: 5aa9bc70107cd9e47a99bd1ba317035d, type: 2}

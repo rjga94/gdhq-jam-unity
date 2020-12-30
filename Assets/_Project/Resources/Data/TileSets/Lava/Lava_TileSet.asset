@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33a2e3057d24b71a052543350e25652, type: 3}
+  m_Name: Lava_TileSet
+  m_EditorClassIdentifier: 
+  topLeftTile: {fileID: 11400000, guid: d014386d9fcb8c141aa3721ba2b155bf, type: 2}
+  topTile: {fileID: 11400000, guid: 167bceafa4724024ab615a23f970e0eb, type: 2}
+  topRightTile: {fileID: 11400000, guid: dae0c5bd00f231a40954808c1c944670, type: 2}
+  leftTile: {fileID: 11400000, guid: 81238f9d760dbdb4bb802137b73a2677, type: 2}
+  centerTile: {fileID: 11400000, guid: a4bddeff32988334d8823ded0b228ba3, type: 2}
+  rightTile: {fileID: 11400000, guid: 531e109302da0354098fbbb528066b0f, type: 2}
+  bottomLeftTile: {fileID: 11400000, guid: b52c11376aaf18343acd82283e8b1dd7, type: 2}
+  bottomTile: {fileID: 11400000, guid: 1b0867e340567a34ba732503bc902a00, type: 2}
+  bottomRightTile: {fileID: 11400000, guid: 26d5e4d2aaacb4b4d974608746c97c2e, type: 2}
