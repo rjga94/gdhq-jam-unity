@@ -25,12 +25,17 @@ namespace Handlers
             _random = new Random();
         }
 
+        private bool _isDying;
+
         public void OnDamage(float amount)
         {
+            if (_isDying) return;
+            
             health -= amount;
             OnHealthChanged?.Invoke();
             if (health <= 0)
             {
+                _isDying = true;
                 animator.SetTrigger(Death);
                 StartCoroutine(DestroySelfAfterTime());
                 if (gameObject.CompareTag("Enemy")) DropLoot();
