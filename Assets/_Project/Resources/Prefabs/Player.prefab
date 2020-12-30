@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c8b26f39694d63aefa3e9341250c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 8496551751913662217}
   health: 5
   lootGO: {fileID: 0}
 --- !u!114 &5225238815162841703
@@ -234,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ff40ddeefd431fa5c3963140e552cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 8496551751913662223}
 --- !u!1001 &6051427832040867445
 PrefabInstance:
   m_ObjectHideFlags: 0
