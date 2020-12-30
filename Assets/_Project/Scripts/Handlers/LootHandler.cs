@@ -10,7 +10,7 @@ namespace Handlers
         [SerializeField] private GameObject parentGO;
 
         private static readonly System.Random random = new System.Random();
-        
+
         private void Start()
         {
             StartCoroutine(DestroySelfAfterTime());
