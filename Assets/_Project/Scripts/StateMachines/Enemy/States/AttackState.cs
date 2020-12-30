@@ -7,6 +7,7 @@ namespace StateMachines.Enemy
     {
         private Rigidbody2D _rb;
         private Coroutine _coroutine;
+        private static readonly int Attack = Animator.StringToHash("Attack");
 
         public AttackState(EnemyController controller) : base(controller)
         {
@@ -36,6 +37,7 @@ namespace StateMachines.Enemy
         private IEnumerator TimedAttack()
         {
             yield return new WaitForSeconds(0.5f);
+            Controller.Animator.SetTrigger(Attack);
             Controller.attackColliderGO.SetActive(true);
             yield return new WaitForSeconds(0.1f);
             Controller.attackColliderGO.SetActive(false);

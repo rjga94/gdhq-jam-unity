@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 0d4a5a075365fc94ebcb4fdde43661d7
+guid: cd654473ce07dff4c9619d81e55309bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 607412717719830977
-    second: Monster_Idle_0
+      213: 5532586758101835772
+    second: Monster_Die_0
   - first:
-      213: -3301326931757704357
-    second: Monster_Idle_1
+      213: 8118397355685454820
+    second: Monster_Die_1
   - first:
-      213: -2398360833306776722
-    second: Monster_Idle_2
+      213: 6821890377663817126
+    second: Monster_Die_2
   - first:
-      213: -943218103603247756
-    second: Monster_Idle_3
+      213: -5439835717283607218
+    second: Monster_Die_3
   - first:
-      213: -5983083674620898222
-    second: Monster_Idle_4
+      213: 3160882700824005717
+    second: Monster_Die_4
   - first:
-      213: 7901702984535169176
-    second: Monster_Idle_5
+      213: -2420872686016801718
+    second: Monster_Die_5
   - first:
-      213: 4101277475743338925
-    second: Monster_Idle_6
+      213: 6009107953935664877
+    second: Monster_Die_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Monster_Idle_0
+      name: Monster_Die_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,14 +134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c1ceb706a6fd6800800000000000000
-      internalID: 607412717719830977
+      spriteID: cff90b5f752b7cc40800000000000000
+      internalID: 5532586758101835772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_1
+      name: Monster_Die_1
       rect:
         serializedVersion: 2
         x: 128
@@ -155,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5bd62195a45f22d0800000000000000
-      internalID: -3301326931757704357
+      spriteID: 4e32a13c1675aa070800000000000000
+      internalID: 8118397355685454820
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_2
+      name: Monster_Die_2
       rect:
         serializedVersion: 2
         x: 256
@@ -176,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6b2a87778f47bed0800000000000000
-      internalID: -2398360833306776722
+      spriteID: 6a5ae4197293cae50800000000000000
+      internalID: 6821890377663817126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_3
+      name: Monster_Die_3
       rect:
         serializedVersion: 2
         x: 384
@@ -197,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475c205d12409e2f0800000000000000
-      internalID: -943218103603247756
+      spriteID: e4d04d29c32d184b0800000000000000
+      internalID: -5439835717283607218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_4
+      name: Monster_Die_4
       rect:
         serializedVersion: 2
         x: 512
@@ -218,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25458c00911d7fca0800000000000000
-      internalID: -5983083674620898222
+      spriteID: 55cca4fb116bddb20800000000000000
+      internalID: 3160882700824005717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_5
+      name: Monster_Die_5
       rect:
         serializedVersion: 2
         x: 640
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 898dcd9dffc78ad60800000000000000
-      internalID: 7901702984535169176
+      spriteID: a44d58f4e15576ed0800000000000000
+      internalID: -2420872686016801718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_6
+      name: Monster_Die_6
       rect:
         serializedVersion: 2
         x: 768
@@ -260,8 +260,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da11efa722aaae830800000000000000
-      internalID: 4101277475743338925
+      spriteID: de64f43b8d3a46350800000000000000
+      internalID: 6009107953935664877
       vertices: []
       indices: 
       edges: []

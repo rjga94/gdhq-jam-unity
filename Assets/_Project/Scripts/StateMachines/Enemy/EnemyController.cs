@@ -10,6 +10,7 @@ namespace StateMachines.Enemy
         [SerializeField] public GameObject attackColliderGO;
 
         [HideInInspector] public Rigidbody2D Rigidbody2D;
+        [SerializeField] public Animator Animator;
         [HideInInspector] public Collider2D target;
 
         private void Awake() => Rigidbody2D = GetComponent<Rigidbody2D>();

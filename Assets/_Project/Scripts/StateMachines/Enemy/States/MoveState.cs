@@ -6,7 +6,8 @@ namespace StateMachines.Enemy
     public class MoveState : State<EnemyController>
     {
         private Rigidbody2D _rb;
-        
+        private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+
         public MoveState(EnemyController controller) : base(controller)
         {
         }
@@ -14,6 +15,7 @@ namespace StateMachines.Enemy
         public override IEnumerator Start()
         {
             _rb = Controller.Rigidbody2D;
+            Controller.Animator.SetBool(IsWalking, true);
             yield return null;
         }
 

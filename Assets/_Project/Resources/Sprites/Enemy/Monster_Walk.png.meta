@@ -1,28 +1,43 @@
 fileFormatVersion: 2
-guid: 0d4a5a075365fc94ebcb4fdde43661d7
+guid: 639f6c370d1bd1c49a77650314eab79d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 607412717719830977
-    second: Monster_Idle_0
+      213: -3383763649425985922
+    second: Monster_Walk_0
   - first:
-      213: -3301326931757704357
-    second: Monster_Idle_1
+      213: -6464741006201169574
+    second: Monster_Walk_1
   - first:
-      213: -2398360833306776722
-    second: Monster_Idle_2
+      213: -2807313825708502296
+    second: Monster_Walk_2
   - first:
-      213: -943218103603247756
-    second: Monster_Idle_3
+      213: -7820227852858422533
+    second: Monster_Walk_3
   - first:
-      213: -5983083674620898222
-    second: Monster_Idle_4
+      213: 2204547583437138552
+    second: Monster_Walk_4
   - first:
-      213: 7901702984535169176
-    second: Monster_Idle_5
+      213: 3094946742407761039
+    second: Monster_Walk_5
   - first:
-      213: 4101277475743338925
-    second: Monster_Idle_6
+      213: 5383627677889310006
+    second: Monster_Walk_6
+  - first:
+      213: -891030147859669196
+    second: Monster_Walk_7
+  - first:
+      213: -3924733194429058043
+    second: Monster_Walk_8
+  - first:
+      213: 7832863026895864179
+    second: Monster_Walk_9
+  - first:
+      213: 5869504437011554151
+    second: Monster_Walk_10
+  - first:
+      213: 4075050323917316030
+    second: Monster_Walk_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,7 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Monster_Idle_0
+      name: Monster_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c1ceb706a6fd6800800000000000000
-      internalID: 607412717719830977
+      spriteID: e7ea51883e47a01d0800000000000000
+      internalID: -3383763649425985922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_1
+      name: Monster_Walk_1
       rect:
         serializedVersion: 2
         x: 128
@@ -155,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5bd62195a45f22d0800000000000000
-      internalID: -3301326931757704357
+      spriteID: a595a787e40a846a0800000000000000
+      internalID: -6464741006201169574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_2
+      name: Monster_Walk_2
       rect:
         serializedVersion: 2
         x: 256
@@ -176,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6b2a87778f47bed0800000000000000
-      internalID: -2398360833306776722
+      spriteID: 8e21a9503fa6a09d0800000000000000
+      internalID: -2807313825708502296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_3
+      name: Monster_Walk_3
       rect:
         serializedVersion: 2
         x: 384
@@ -197,14 +212,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 475c205d12409e2f0800000000000000
-      internalID: -943218103603247756
+      spriteID: bfa02cf7338f87390800000000000000
+      internalID: -7820227852858422533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_4
+      name: Monster_Walk_4
       rect:
         serializedVersion: 2
         x: 512
@@ -218,14 +233,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25458c00911d7fca0800000000000000
-      internalID: -5983083674620898222
+      spriteID: 87a6731d850289e10800000000000000
+      internalID: 2204547583437138552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_5
+      name: Monster_Walk_5
       rect:
         serializedVersion: 2
         x: 640
@@ -239,14 +254,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 898dcd9dffc78ad60800000000000000
-      internalID: 7901702984535169176
+      spriteID: f8c87fb1aa573fa20800000000000000
+      internalID: 3094946742407761039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Monster_Idle_6
+      name: Monster_Walk_6
       rect:
         serializedVersion: 2
         x: 768
@@ -260,8 +275,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da11efa722aaae830800000000000000
-      internalID: 4101277475743338925
+      spriteID: 63dad8f69dc76ba40800000000000000
+      internalID: 5383627677889310006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f19a82dcc62a3f0800000000000000
+      internalID: -891030147859669196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Walk_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5043fdb24fb8889c0800000000000000
+      internalID: -3924733194429058043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Walk_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3714b643c6be3bc60800000000000000
+      internalID: 7832863026895864179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Walk_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f17afff2ba47150800000000000000
+      internalID: 5869504437011554151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster_Walk_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebf9ee6ddac7d8830800000000000000
+      internalID: 4075050323917316030
       vertices: []
       indices: 
       edges: []
