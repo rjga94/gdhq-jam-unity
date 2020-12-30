@@ -22,6 +22,8 @@ namespace StateMachines.Player
         [HideInInspector] public Vector2 MovementAxis;
         [HideInInspector] public Animator Animator;
 
+        public int collectedShards;
+
         private void Awake()
         {
             Rigidbody2D = GetComponent<Rigidbody2D>();
