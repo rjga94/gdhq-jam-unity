@@ -7,6 +7,7 @@ namespace Handlers
 {
     public class HealthHandler : MonoBehaviour
     {
+        [SerializeField] private Animator animator;
         [SerializeField] private float health;
         private Random _random;
         
@@ -15,6 +16,9 @@ namespace Handlers
         public event Action OnHealthChanged;
 
         public GameObject lootGO;
+        
+        private static readonly int Hit = Animator.StringToHash("Hit");
+        private static readonly int Death = Animator.StringToHash("Death");
 
         private void Awake()
         {
@@ -27,9 +31,19 @@ namespace Handlers
             OnHealthChanged?.Invoke();
             if (health <= 0)
             {
-                Destroy(gameObject); 
+                animator.SetTrigger(Death);
+                StartCoroutine(DestroySelfAfterTime());
                 if (gameObject.CompareTag("Enemy")) DropLoot();
+                return;
             }
+            
+            animator.SetTrigger(Hit);
+        }
+
+        private IEnumerator DestroySelfAfterTime()
+        {
+            yield return new WaitForSeconds(1f);
+            Destroy(gameObject);
         }
 
         private void DropLoot()
