@@ -25,6 +25,8 @@ namespace Managers
 
         private void Start()
         {
+            PerformStep();
+            
             InputManager.Instance.Cutscene.Enable();
             InputManager.Instance.Cutscene.Step.performed += OnStepInput;
             InputManager.Instance.Cutscene.Skip.performed += OnSkipInput;
@@ -35,7 +37,14 @@ namespace Managers
             InputManager.Instance.Cutscene.Disable();
         }
 
-        private void OnStepInput(InputAction.CallbackContext obj)
+        private void OnStepInput(InputAction.CallbackContext obj) => PerformStep();
+
+        private void OnSkipInput(InputAction.CallbackContext obj)
+        {
+            ApplicationManager.Instance.LoadScene(GameScene.MainMenu);
+        }
+
+        private void PerformStep()
         {
             if (_stepCount == 0)
             {
@@ -69,11 +78,6 @@ namespace Managers
             {
                 ApplicationManager.Instance.LoadScene(GameScene.MainMenu);
             }
-        }
-
-        private void OnSkipInput(InputAction.CallbackContext obj)
-        {
-            ApplicationManager.Instance.LoadScene(GameScene.MainMenu);
         }
 
         private void OnAnimationEnd()
