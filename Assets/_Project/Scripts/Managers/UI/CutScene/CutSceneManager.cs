@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Managers
@@ -24,8 +25,14 @@ namespace Managers
 
         private void Start()
         {
+            InputManager.Instance.Cutscene.Enable();
             InputManager.Instance.Cutscene.Step.performed += OnStepInput;
             InputManager.Instance.Cutscene.Skip.performed += OnSkipInput;
+        }
+
+        private void OnDestroy()
+        {
+            InputManager.Instance.Cutscene.Disable();
         }
 
         private void OnStepInput(InputAction.CallbackContext obj)

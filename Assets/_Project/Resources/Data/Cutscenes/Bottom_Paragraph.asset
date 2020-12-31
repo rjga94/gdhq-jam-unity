@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Bottom_Paragraph
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  text: bottom
+  text: 'But The Void, hot in pursuit, has sent its Twilight Avatars to extinguish
+    each shard. There will be resistance. There will be struggle. There may be slaughter.
+    Despite it all, could this shard be the one to reach its goal? '

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Center_Paragraph
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  text: center
+  text: "Rather than accepting its fate, it decides to shatter, sending countless
+    shards of pure energy scorching through the galaxy. Each shard, when embedded
+    in a planet\u2019s core, has the potential to spread, grow, incubate, one day
+    to bloom into a new star. "
