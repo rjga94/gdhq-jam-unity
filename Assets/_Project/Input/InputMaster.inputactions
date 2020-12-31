@@ -128,6 +128,63 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Cutscene",
+            "id": "84f442ce-ae1f-4aeb-9963-94d81f65278a",
+            "actions": [
+                {
+                    "name": "Step",
+                    "type": "Button",
+                    "id": "3c9740a6-ea8f-406b-a845-9f2c1b48e04b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "add458e0-4ed1-4d75-aca7-009f5f3e8e3a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fc78a90-fd4d-4026-9671-1bbfe53e84e8",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Step",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69eb0010-2aa2-40a5-a18d-d8c7dd32b12e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Step",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1eac07ce-7640-4696-99b5-337d6c9c7319",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
