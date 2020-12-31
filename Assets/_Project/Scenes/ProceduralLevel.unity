@@ -767,7 +767,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d524e2434b7a4615bb7552d1647d6356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerJump: {fileID: 8300000, guid: 5b6db2ca6296c7e4dbcb9f4bfb595c38, type: 3}
+  _playerJumpSamples:
+  - {fileID: 8300000, guid: 5b6db2ca6296c7e4dbcb9f4bfb595c38, type: 3}
+  _playerAttackSamples:
+  - {fileID: 8300000, guid: 03857b6c282d3a44b9840232db802fd6, type: 3}
+  _playerPickupSamples:
+  - {fileID: 8300000, guid: f8eeba0d9ae33cf43a3167be3dba571b, type: 3}
+  - {fileID: 8300000, guid: 5afd48adb63d4834c81fc24fa0390aca, type: 3}
 --- !u!82 &245788394
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1412,7 +1418,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4c38f8503a6945a428e3a87e5ae3e3cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38e5cc604733b2d4289fdd4302431e54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1432,7 +1438,7 @@ Transform:
   m_GameObject: {fileID: 606112731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 1.4726, y: 1.4726, z: 1.4726}
+  m_LocalScale: {x: 1, y: 1, z: 1.4726}
   m_Children: []
   m_Father: {fileID: 1040505869}
   m_RootOrder: 0
@@ -5456,10 +5462,10 @@ RectTransform:
   m_Father: {fileID: 1928413306456691882}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800.00006, y: -490.0608}
-  m_SizeDelta: {x: 420, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &561805777263798777
 RectTransform:
@@ -5476,10 +5482,10 @@ RectTransform:
   m_Father: {fileID: 1928413306456691882}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 800.00006, y: -390.0608}
-  m_SizeDelta: {x: 420, y: 80}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &820512727695836976
 GameObject:
@@ -5697,7 +5703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try Again
+  m_text: Next Planet
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6169,7 +6175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &6722847576382549132
 MonoBehaviour:
   m_ObjectHideFlags: 0
