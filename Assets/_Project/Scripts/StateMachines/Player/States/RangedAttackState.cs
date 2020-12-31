@@ -15,6 +15,7 @@ namespace StateMachines.Player
         {
             if (Time.time - Controller.lastRangedAttackTime >= Controller.fireRate)
             {
+                Controller.soundEffectsManager.PlayPlayerAttack();
                 Object.Instantiate(Controller.projectilePrefab, Controller.projectileSpawnPosition.transform.position, Quaternion.identity);
                 Controller.lastRangedAttackTime = Time.time;
             }

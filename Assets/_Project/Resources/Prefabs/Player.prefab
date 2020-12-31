@@ -205,6 +205,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3314077287919064909, guid: 7321bd7fa0d43fe42bd5f8b635a014a1,
     type: 3}
   projectileSpawnPosition: {fileID: 8205411364171841171}
+  soundEffectsManager: {fileID: 0}
   Rigidbody2D: {fileID: 0}
   MovementAxis: {x: 0, y: 0}
   Animator: {fileID: 0}

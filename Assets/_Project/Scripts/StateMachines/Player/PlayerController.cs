@@ -18,6 +18,7 @@ namespace StateMachines.Player
         [SerializeField] public GameObject attackColliderGO;
         [SerializeField] public GameObject projectilePrefab;
         [SerializeField] public GameObject projectileSpawnPosition;
+        [SerializeField] public SoundEffectsManager soundEffectsManager;
 
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;

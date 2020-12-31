@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Managers;
 using StateMachines.Player;
 using UnityEngine;
 
@@ -8,8 +9,11 @@ namespace Handlers
     public class LootHandler : MonoBehaviour
     {
         [SerializeField] private GameObject parentGO;
+        private SoundEffectsManager _soundEffectsManager;
 
         private static readonly System.Random random = new System.Random();
+
+        private void Awake() => _soundEffectsManager = FindObjectOfType<SoundEffectsManager>();
 
         private void Start()
         {
@@ -22,6 +26,7 @@ namespace Handlers
             if (player == null) return;
 
             player.collectedShards += 1;
+            _soundEffectsManager.PlayPlayerPickup();
             Destroy(parentGO);
         }
 
