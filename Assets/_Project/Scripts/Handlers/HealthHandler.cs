@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Handlers
 {
@@ -9,7 +8,6 @@ namespace Handlers
     {
         [SerializeField] private Animator animator;
         [SerializeField] private float health;
-        private Random _random;
         
         public float Health => health;
 
@@ -20,10 +18,6 @@ namespace Handlers
         private static readonly int Hit = Animator.StringToHash("Hit");
         private static readonly int Death = Animator.StringToHash("Death");
 
-        private void Awake()
-        {
-            _random = new Random();
-        }
 
         private bool _isDying;
 
@@ -60,12 +54,13 @@ namespace Handlers
 
         private void DropLoot()
         {
-            var count = _random.Next(1, 10);
+            var random = new System.Random((int)Time.time);
+            var count = random.Next(1, 10);
             var pos = transform.position;
             for (var i = 0; i < count; i++)
             {
-                var offsetX = _random.Next(-20, 30) * 0.1f;
-                var offsetY = _random.Next(10, 20) * 0.1f;
+                var offsetX = random.Next(-20, 30) * 0.1f;
+                var offsetY = random.Next(10, 20) * 0.1f;
                 var go = Instantiate(lootGO, new Vector3(pos.x + offsetX, pos.y + offsetY, pos.z), Quaternion.identity);
                 go.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 5);
             }
