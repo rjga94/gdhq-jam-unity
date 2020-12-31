@@ -33,8 +33,8 @@ namespace Managers
 
         private void SetImageAlpha(float alphaNormalized)
         {
-            var originalColor = _image.color;
-            _image.color = new Color(originalColor.r, originalColor.g, originalColor.b, alphaNormalized);
+            // var originalColor = _image.color;
+            // _image.color = new Color(originalColor.r, originalColor.g, originalColor.b, alphaNormalized);
         }
 
         private IEnumerator ShowLettersOverTime()
