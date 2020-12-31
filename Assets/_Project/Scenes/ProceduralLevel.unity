@@ -492,8 +492,8 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!19719996 &305154496
 TilemapCollider2D:
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   platformMaxWidth: 8
   enemyPrefab: {fileID: 5238912858792580004, guid: af57ded0827718748b699610af3eabaf,
     type: 3}
-  enemyFrequency: 0.2
+  enemyFrequency: 0.5
   corePrefab: {fileID: 7953460937256299167, guid: 711b23a9fc8b5d34b81f5aef0f6238bf,
     type: 3}
 --- !u!4 &1698207583

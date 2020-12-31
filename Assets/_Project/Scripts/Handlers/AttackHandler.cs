@@ -4,15 +4,16 @@ namespace Handlers
 {
     public class AttackHandler : MonoBehaviour
     {
-        [SerializeField] private float attackPower;
-        
-        private void OnTriggerEnter2D(Collider2D other)
+        [SerializeField] private GameObject attackColliderGO;
+
+        public void OnAttackAnimationTrigger()
         {
-            var healthHandler = other.GetComponent<HealthHandler>();
-            if (!healthHandler) return;
-            
-            healthHandler.OnDamage(attackPower);
-            gameObject.SetActive(false);
+            attackColliderGO.SetActive(true);
+        }
+
+        public void OnAttackAnimationEnd()
+        {
+            attackColliderGO.SetActive(false);
         }
     }
 }

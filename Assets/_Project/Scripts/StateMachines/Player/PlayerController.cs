@@ -14,6 +14,7 @@ namespace StateMachines.Player
 
         [SerializeField] public float movementSpeed;
         [SerializeField] public float jumpForce;
+        [SerializeField] public float fireRate;
         [SerializeField] public GameObject attackColliderGO;
         [SerializeField] public GameObject projectilePrefab;
         [SerializeField] public GameObject projectileSpawnPosition;
@@ -21,7 +22,8 @@ namespace StateMachines.Player
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [HideInInspector] public Vector2 MovementAxis;
         [HideInInspector] public Animator Animator;
-
+        
+        [HideInInspector] public float lastRangedAttackTime;
         public int collectedShards;
 
         private void Awake()

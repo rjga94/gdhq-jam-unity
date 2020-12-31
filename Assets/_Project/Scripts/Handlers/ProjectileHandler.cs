@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,6 +45,12 @@ namespace Handlers
         {
             if (_isExploding) transform.position += new Vector3(_dir.x, _dir.y, 0) * (projectileSpeed * 0.1f * Time.deltaTime);
             else transform.position += new Vector3(_dir.x, _dir.y, 0) * (projectileSpeed * Time.deltaTime);
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            _animator.SetTrigger(Explosion);
+            _isExploding = true;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

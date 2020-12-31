@@ -37,8 +37,15 @@ namespace Handlers
             {
                 _isDying = true;
                 animator.SetTrigger(Death);
-                StartCoroutine(DestroySelfAfterTime());
-                if (gameObject.CompareTag("Enemy")) DropLoot();
+                if (gameObject.CompareTag("Enemy"))
+                {
+                    StartCoroutine(DestroySelfAfterTime());
+                    DropLoot();
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
                 return;
             }
             

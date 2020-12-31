@@ -7,7 +7,6 @@ namespace StateMachines.Enemy
     {
         [SerializeField] public float movementSpeed;
         [SerializeField] public float attackRange;
-        [SerializeField] public GameObject attackColliderGO;
 
         [HideInInspector] public Rigidbody2D Rigidbody2D;
         [SerializeField] public Animator Animator;

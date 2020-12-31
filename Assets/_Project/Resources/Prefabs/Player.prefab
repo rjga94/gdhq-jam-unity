@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 7
   jumpForce: 17
+  fireRate: 0.5
   attackColliderGO: {fileID: 1419798618}
   projectilePrefab: {fileID: 3314077287919064909, guid: 7321bd7fa0d43fe42bd5f8b635a014a1,
     type: 3}
@@ -207,6 +208,7 @@ MonoBehaviour:
   Rigidbody2D: {fileID: 0}
   MovementAxis: {x: 0, y: 0}
   Animator: {fileID: 0}
+  lastRangedAttackTime: 0
   collectedShards: 0
 --- !u!114 &1072558391
 MonoBehaviour:
