@@ -34,6 +34,8 @@ namespace Managers
             else PauseGame();
         }
 
+        public void OnPauseButtonClick() => PauseGame();
+        
         public void OnResumeButtonClick() => ResumeGame();
 
         public void OnMainMenuButtonClick()

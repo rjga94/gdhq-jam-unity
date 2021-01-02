@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5632599208218074988}
   - component: {fileID: 6244081638890159539}
   - component: {fileID: 7932752053366436106}
+  - component: {fileID: 13668343912255275}
   m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
@@ -115,6 +116,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &13668343912255275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804769081880690778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b83b1434b04edf8f93ba06e589d709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackColliderGO: {fileID: 7742833327716468402}
 --- !u!1 &5181214178323290627
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +317,19 @@ MonoBehaviour:
   Rigidbody2D: {fileID: 0}
   Animator: {fileID: 7932752053366436106}
   target: {fileID: 0}
+--- !u!114 &4126642124272642785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742833327716468402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b117c79c44684b40a28021f453b3c9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPower: 1
 --- !u!1001 &4075454670436149405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -310,21 +337,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2092097125850199599}
     m_Modifications:
-    - target: {fileID: 6051427833439661609, guid: 4cfc4a9f361b2014c88a3c57a5793226,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.1889739
-      objectReference: {fileID: 0}
-    - target: {fileID: 6051427833439661609, guid: 4cfc4a9f361b2014c88a3c57a5793226,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.55333424
-      objectReference: {fileID: 0}
-    - target: {fileID: 6051427833439661609, guid: 4cfc4a9f361b2014c88a3c57a5793226,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6051427833439661614, guid: 4cfc4a9f361b2014c88a3c57a5793226,
         type: 3}
       propertyPath: m_RootOrder
@@ -384,11 +396,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AttackCollider
-      objectReference: {fileID: 0}
-    - target: {fileID: 6051427833439661615, guid: 4cfc4a9f361b2014c88a3c57a5793226,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6051427833439661615, guid: 4cfc4a9f361b2014c88a3c57a5793226,
         type: 3}

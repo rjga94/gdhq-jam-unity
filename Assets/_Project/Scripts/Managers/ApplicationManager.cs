@@ -7,6 +7,7 @@ namespace Managers
 {
     public enum GameScene
     {
+        StartCutScene,
         MainMenu,
         ProceduralLevel
     }

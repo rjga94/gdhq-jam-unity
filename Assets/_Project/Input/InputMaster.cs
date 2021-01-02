@@ -143,6 +143,63 @@ namespace Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cutscene"",
+            ""id"": ""84f442ce-ae1f-4aeb-9963-94d81f65278a"",
+            ""actions"": [
+                {
+                    ""name"": ""Step"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c9740a6-ea8f-406b-a845-9f2c1b48e04b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""add458e0-4ed1-4d75-aca7-009f5f3e8e3a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""5fc78a90-fd4d-4026-9671-1bbfe53e84e8"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Step"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69eb0010-2aa2-40a5-a18d-d8c7dd32b12e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Step"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1eac07ce-7640-4696-99b5-337d6c9c7319"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -181,6 +238,10 @@ namespace Input
             m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
             m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
             m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+            // Cutscene
+            m_Cutscene = asset.FindActionMap("Cutscene", throwIfNotFound: true);
+            m_Cutscene_Step = m_Cutscene.FindAction("Step", throwIfNotFound: true);
+            m_Cutscene_Skip = m_Cutscene.FindAction("Skip", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -283,6 +344,47 @@ namespace Input
             }
         }
         public GameplayActions @Gameplay => new GameplayActions(this);
+
+        // Cutscene
+        private readonly InputActionMap m_Cutscene;
+        private ICutsceneActions m_CutsceneActionsCallbackInterface;
+        private readonly InputAction m_Cutscene_Step;
+        private readonly InputAction m_Cutscene_Skip;
+        public struct CutsceneActions
+        {
+            private @InputMaster m_Wrapper;
+            public CutsceneActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Step => m_Wrapper.m_Cutscene_Step;
+            public InputAction @Skip => m_Wrapper.m_Cutscene_Skip;
+            public InputActionMap Get() { return m_Wrapper.m_Cutscene; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(CutsceneActions set) { return set.Get(); }
+            public void SetCallbacks(ICutsceneActions instance)
+            {
+                if (m_Wrapper.m_CutsceneActionsCallbackInterface != null)
+                {
+                    @Step.started -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnStep;
+                    @Step.performed -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnStep;
+                    @Step.canceled -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnStep;
+                    @Skip.started -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnSkip;
+                    @Skip.performed -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnSkip;
+                    @Skip.canceled -= m_Wrapper.m_CutsceneActionsCallbackInterface.OnSkip;
+                }
+                m_Wrapper.m_CutsceneActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @Step.started += instance.OnStep;
+                    @Step.performed += instance.OnStep;
+                    @Step.canceled += instance.OnStep;
+                    @Skip.started += instance.OnSkip;
+                    @Skip.performed += instance.OnSkip;
+                    @Skip.canceled += instance.OnSkip;
+                }
+            }
+        }
+        public CutsceneActions @Cutscene => new CutsceneActions(this);
         private int m_KeyboardandMouseSchemeIndex = -1;
         public InputControlScheme KeyboardandMouseScheme
         {
@@ -307,6 +409,11 @@ namespace Input
             void OnJump(InputAction.CallbackContext context);
             void OnMovement(InputAction.CallbackContext context);
             void OnAttack(InputAction.CallbackContext context);
+        }
+        public interface ICutsceneActions
+        {
+            void OnStep(InputAction.CallbackContext context);
+            void OnSkip(InputAction.CallbackContext context);
         }
     }
 }

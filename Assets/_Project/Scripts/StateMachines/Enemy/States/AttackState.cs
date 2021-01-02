@@ -38,9 +38,6 @@ namespace StateMachines.Enemy
         {
             yield return new WaitForSeconds(0.5f);
             Controller.Animator.SetTrigger(Attack);
-            Controller.attackColliderGO.SetActive(true);
-            yield return new WaitForSeconds(0.1f);
-            Controller.attackColliderGO.SetActive(false);
             _coroutine = null;
         }
     }

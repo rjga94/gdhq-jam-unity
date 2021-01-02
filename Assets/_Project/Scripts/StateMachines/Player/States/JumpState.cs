@@ -20,6 +20,7 @@ namespace StateMachines.Player
         public override IEnumerator Update()
         {
             _rb.velocity = new Vector2(_rb.velocity.x, Controller.jumpForce);
+            Controller.soundEffectsManager.PlayPlayerJump();
             Controller.SetState(new MovementState(Controller));
             yield return null;
         }

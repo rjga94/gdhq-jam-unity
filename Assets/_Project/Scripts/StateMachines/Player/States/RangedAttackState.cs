@@ -13,7 +13,12 @@ namespace StateMachines.Player
 
         public override IEnumerator Start()
         {
-            Object.Instantiate(Controller.projectilePrefab, Controller.projectileSpawnPosition.transform.position, Quaternion.identity);
+            if (Time.time - Controller.lastRangedAttackTime >= Controller.fireRate)
+            {
+                Controller.soundEffectsManager.PlayPlayerAttack();
+                Object.Instantiate(Controller.projectilePrefab, Controller.projectileSpawnPosition.transform.position, Quaternion.identity);
+                Controller.lastRangedAttackTime = Time.time;
+            }
             Controller.SetState(new MovementState(Controller));
             yield return null;
         }
